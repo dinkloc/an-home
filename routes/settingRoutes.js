@@ -7,4 +7,9 @@ router
   .get(settingController.getAllSettings)
   .post(settingController.createSetting);
 
+router
+  .route('/:id')
+  .patch(settingController.updateSetting)
+  .delete(settingController.deleteSetting);
+
 module.exports = router;

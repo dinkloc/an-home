@@ -7,5 +7,8 @@ router
   .get(cabinController.getAllCabins)
   .post(cabinController.createCabin);
 
-router.route('/:id').delete(cabinController.deleteCabin);
+router
+  .route('/:id')
+  .patch(cabinController.updateCabin)
+  .delete(cabinController.deleteCabin);
 module.exports = router;
