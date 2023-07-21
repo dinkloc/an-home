@@ -1,1 +1,1 @@
-[![My Skills](https://skills.thijs.gg/icons?i=mongoose,nodejs)](https://skills.thijs.gg)
+[![My Skills](https://skills.thijs.gg/icons?i=mongodb,nodejs)](https://skills.thijs.gg)
