@@ -34,3 +34,18 @@ exports.createGuest = async (req, res) => {
     });
   }
 };
+
+exports.deleteGuest = async (req, res) => {
+  try {
+    await Guest.findByIdAndDelete(req.params.id);
+    res.status(204).json({
+      status: 'deleted success',
+      data: null,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};

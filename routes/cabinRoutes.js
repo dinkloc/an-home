@@ -1,5 +1,6 @@
 const express = require('express');
 const cabinController = require('../controllers/cabinController');
+const authController = require('../controllers/authController');
 
 const router = express.Router();
 router
@@ -10,5 +11,9 @@ router
 router
   .route('/:id')
   .patch(cabinController.updateCabin)
-  .delete(cabinController.deleteCabin);
+  .delete(
+    authController.protect,
+    authController.restrictTo('admin'),
+    cabinController.deleteCabin,
+  );
 module.exports = router;
