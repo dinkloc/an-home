@@ -1,5 +1,7 @@
+const { subDays } = require('date-fns');
 const Booking = require('../models/bookingModel');
 const APIFeatures = require('../utils/apiFeatures');
+const catchAsync = require('../utils/catchAsync');
 
 exports.getAllBookings = async (req, res) => {
   try {
@@ -77,6 +79,54 @@ exports.deleteBooking = async (req, res) => {
     res.status(204).json({
       status: 'deleted success',
       data: null,
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
+exports.getBookingStats = async (req, res) => {
+  const today = new Date();
+  const date = subDays(today, req.params.day);
+  try {
+    const stats = await Booking.find({
+      createdAt: { $gte: date, $lt: today },
+    });
+
+    console.log(date);
+    res.status(200).json({
+      status: 'success',
+      results: stats.length,
+      data: {
+        stats,
+      },
+    });
+  } catch (err) {
+    res.status(404).json({
+      status: 'fail',
+      message: err,
+    });
+  }
+};
+
+exports.getStayAfterDate = async (req, res) => {
+  const today = new Date();
+  const date = subDays(today, req.params.day);
+  try {
+    const stats = await Booking.find({
+      startDate: { $gte: date, $lt: today },
+    });
+
+    console.log(date);
+    res.status(200).json({
+      status: 'success',
+      results: stats.length,
+      data: {
+        stats,
+      },
     });
   } catch (err) {
     res.status(404).json({

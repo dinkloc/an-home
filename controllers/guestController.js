@@ -5,6 +5,7 @@ exports.getAllGuests = async (req, res) => {
     const guest = await Guest.find();
     res.status(200).json({
       message: 'success',
+      results: guest.length,
       data: {
         guest,
       },
@@ -49,3 +50,5 @@ exports.deleteGuest = async (req, res) => {
     });
   }
 };
+
+
