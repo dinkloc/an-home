@@ -5,7 +5,7 @@ const authController = require('../controllers/authController');
 const router = express.Router();
 router
   .route('/')
-  .get(bookingController.getAllBookings)
+  .get(authController.protect, bookingController.getAllBookings)
   .post(bookingController.createBooking);
 
 router.route('/stats/:day').get(bookingController.getBookingStats);
