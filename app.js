@@ -36,7 +36,6 @@ const limiter = rateLimit({
 app.use(mongoSanitize());
 
 // Data sanitization against XSS
-
 app.use(xss());
 app.use(hpp());
 
