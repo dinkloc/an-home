@@ -1,7 +1,20 @@
-Backend
+# API for An's Home project.
 
-[![My Skills](https://skills.thijs.gg/icons?i=nodejs)](https://skills.thijs.gg)
+## Technologies
 
-Database
+- Nodejs(express)
+- MongoDB
 
-[![My Skills](https://skills.thijs.gg/icons?i=mongodb)](https://skills.thijs.gg)
+## Installation
+
+- clone project: https://github.com/dinkloc/an-home
+- cd at root project, install all dependencies
+  > npm install
+- run project
+  > npm start
+
+## Feature
+
+- Authentication, Authorization, Forgot Password
+- Crud Bookings, Cabins,......
+- Pagination, statistics,....
